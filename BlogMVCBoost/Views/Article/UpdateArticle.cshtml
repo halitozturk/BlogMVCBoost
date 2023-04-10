@@ -1,0 +1,24 @@
+﻿@model BlogMVCBoost.ViewModels.ArticleVM
+@{
+    ViewData["Title"] = "UpdateArticle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Update Articles</h1>
+<form asp-action="UpdateArticle" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <label asp-for="ArticleName"></label>
+    <input asp-for="ArticleName" type="text" class="form-control" />
+    <span asp-validation-for="ArticleName"></span>
+    <br />
+    <label asp-for="ArticleBody"></label>
+    <input asp-for="ArticleBody" type="text" class="form-control" />
+    <span asp-validation-for="ArticleBody"></span>
+    <br />
+    <label asp-for="ArticleImage"></label>
+    <input asp-for="ArticleImage" type="file" class="form-control" />
+    <span asp-validation-for="ArticleImage"></span>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-success" />
+    </div>
+</form>

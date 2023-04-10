@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Article>
+
+@{
+    ViewData["Title"] = "MyArticleList";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Write">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ArticleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArticleBody)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArticleImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArticleName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArticleBody)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArticleImage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedTime)
+                    </td>
+                    <td>
+                        <a asp-action="UpdateArticle" asp-route-id="@item.ArticleID">Update</a>
+                        <a asp-action="DeleteArticle" asp-route-id="@item.ArticleID">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

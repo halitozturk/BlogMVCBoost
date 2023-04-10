@@ -1,0 +1,18 @@
+﻿@model BlogMVCBoost.ViewModels.ArticleUserVM
+@{
+    ViewData["Title"] = "UpdateArticle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div>
+        <div>
+            <h1>@Model.Article.ArticleName</h1>
+        </div>
+        <div>
+            <img src="@Model.Article.ArticleImage" />
+        </div>
+        <div>
+            <p>@Model.Article.ArticleBody</p>
+        </div>
+    </div>
+</div>

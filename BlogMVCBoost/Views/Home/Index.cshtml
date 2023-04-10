@@ -1,0 +1,20 @@
+﻿@model BlogMVCBoost.ViewModels.ArticleUserVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Makaleler</h1>
+<div class="row">
+    @foreach (var item in Model.Articles)
+    {
+        <div class="card m-2" style="width: 18rem;">
+            <img src="@item.ArticleImage" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@item.ArticleName</h5>
+                <p class="card-text">@item.ArticleBody</p>
+                <p>@Model.Users.FirstOrDefault(x => x.Id == item.AppUserID).Name @Model.Users.FirstOrDefault(x => x.Id == item.AppUserID).Surname</p>
+                <a asp-controller="Article" asp-action="ReadArticle" asp-route-id="@item.ArticleID" class="btn btn-outline-primary">Read More</a>
+            </div>
+        </div>
+    }
+</div>
